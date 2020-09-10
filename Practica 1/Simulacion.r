@@ -42,7 +42,7 @@ for (n_rep in c(10, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000,
     print(mean(replicate(n_rep, fixed_points(sample(1:n))==0)))
 }
 
-Mejor guardamos las distintas simulaciones en un vector
+#Mejor guardamos las distintas simulaciones en un vector
 
 
 set.seed(1234)
