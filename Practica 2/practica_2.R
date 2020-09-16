@@ -22,3 +22,81 @@ X <- replicate(10000, {
 })
 
 mean(X >= 1)
+
+# Ejercicios simulados
+# Ejercicio 1
+p_X <- function(x)
+{
+  if (x %in% 0:3)
+    ans <-(choose(11, 3-x)*choose(4,x))/choose(15,3)
+  else
+    ans <- 0
+  ans
+}
+
+R_X = 0:3
+
+# Item b)
+p_X(2)
+
+plot(R_X, sapply(R_X, p_X))
+
+F_X <- function(x){
+  acum = 0
+  if (x>= 0 & x<=3) 
+    acum <- sum(sapply(0:x, p_X))
+  if (x>3)
+    acum <-1
+  acum
+}
+
+F_X(1)
+
+
+# Ejercicio 3
+p_X_v <- function(t,x, y){
+  position <- which(vector1 < 12)
+  sum_of_values = sum(vector2[position])
+  sum_of_values
+}
+
+vector1 <- c(1, 3, 6, 12, 13)
+vector2 <- c(0,0.3,0.4,0.6,1)
+p_X_v(4, vector1, vector2)
+
+
+# Ejercicio 5
+experanzap1 <- function(x){
+  x*p_X(x)
+}
+
+sum(sapply(R_X, experanzap1))
+
+# Funcion de distribucion
+p_X <- function(x)
+{
+  if (x %in% 0:3)
+    ans <-(choose(5, 3-x)*choose(3,x))/choose(8,3)
+  else
+    ans <- 0
+  ans
+}
+
+R_X = 0:3
+
+plot(R_X, sapply(R_X, p_X))
+
+# Funcion de distribucion
+F_X <- function(x){
+  acum = 0
+  if (x>= 0 & x<=3) 
+    acum <- sum(sapply(0:x, p_X))
+  if (x>3)
+    acum <-1
+  acum
+}
+
+F_X(2.4)
+
+x <- seq(-3,6, length = 1000)
+acumulada <- sapply(x, F_X)
