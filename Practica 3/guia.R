@@ -21,3 +21,25 @@ pnorm(1.65) - pnorm(-1.65)
 
 # percentil 0.98 de una distro normal
 qnorm(0.98, 0, 1)
+
+#ejercicio 7
+#a
+pnorm(5.50, 5, 0.5)
+
+#b
+pnorm(5.25, 5, 0.5) - pnorm(-5.25, 5, 0.5)
+
+qnorm(0.90, 5, 0.5)
+
+#EJERCICIO 8
+pnorm(82, 74.3485, 3.228) - pnorm(78, 74.3485, 3.228)
+  
+#ejercicio 13
+nicoTotalUno <- ((1 - pnorm(2.1, 1.9, 0.4))*0.35) +
+((1 - pnorm(2.1, 2.2, 0.3))*0.65)
+
+
+((1 - pnorm(2.1, 1.9, 0.4))*0.35) / nicoTotalUno
+
+#Ejercicio 16
+pexp(1)
