@@ -1,0 +1,53 @@
+---
+title: "Ejercicio 5"
+output:
+  pdf_document: default
+  pdf_notebook: default
+---
+
+```{r}
+datos <- scan("ingresos.txt")
+```
+**a)** Cual es el ingreso minimo recibido?
+
+La funcion summary me permite traer una descripcion de todos los datos importantes, minomos, cuartiles, etc
+
+```{r}
+summary(datos)
+```
+Podemos ver que el minimo corresponde a 15, que coincide con el 1er cuartil
+
+**b)** Estimar el ingreso mensual que se necesita para pertenecer al 10% de los trabajadores de la ciudad con los ingresos mas altos
+
+```{r}
+quantile(datos, seq(0,1,0.1))
+```
+Teniendo una lista de los cuartiles, el ingreso estimado para pertenecer al 10% de trabajadores de la ciudad con ingresos mas altos es $$P(X \leq t) = 0.9$$
+
+O lo mismo que decir el 90 percentil, el 10 percentil mas alto hacia la izquierda, como sea
+```{r}
+quantile(datos, 0.9)
+```
+**c)** Calcular la media muestral, la mediana muestral y la media $\alpha$-podada con $\alpha$ = 0.10
+
+```{r}
+mean(datos) # Media 
+mean(datos, 0.1) # Media podada 0.1
+median(datos) # Mediana
+```
+
+**d)** calcular el desvio estandar muestral y la distancia intercuartil
+```{r}
+sd(datos)
+IQR(datos)
+```
+
+**e)** Histograma y boxplot
+
+```{r}
+par(mfrow=c(1,2))
+hist(datos, col="lightblue", "main"="Ingresos")
+boxplot(datos, col="lightblue", "main"= "Ingresos bigote")
+```
+**f)** Contesto aqui lo anterior
+Es exponencial,  la mayor cantidad de datos se centraliza al inicio de ambos graficos, en la grafica de bigotes hay una gran asimetria y una inmensa cantidad de outliers

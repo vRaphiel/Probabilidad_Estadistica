@@ -1,0 +1,23 @@
+---
+title: "Ejercicio 4"
+output:
+  pdf_document: default
+  pdf_notebook: default
+---
+
+```{r}
+datos <- read.table("ciudades.txt", header=TRUE)
+datos
+View(datos)
+```
+**a)** Construir un boxplot de cada pais e identificar los puntos extremos
+
+```{r}
+par(mfrow=c(1,2))
+boxplot(datos$Argentina, main="Argentina")
+boxplot(datos$EEUU, main="EEUU")
+par(mfrow=c(1,2))
+boxplot(datos$Holanda, main="Holanda")
+boxplot(datos$Japon, main="Japon")
+```
+

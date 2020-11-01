@@ -1,0 +1,162 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\setlength{\parskip}{1em}
+\input{Algo1Macros}
+
+\begin{document}
+
+\section{Ejemplos de estimacion puntual}
+
+\subsection{Ejercicio 1 - Distribucion Normal}
+Se quiere conocer el peso medio de los paquetes de arroz producido por una fábrica. Para ello se toman 30 cajas
+de arroz al azar y se las pesa. Se obtiene
+
+\begin{equation*}
+    \begin{matrix}
+        0.96 & 0.97 & 1.12 & 1.16 & 1.03 & 0.95 & 0.91 & 0.87 & 0.96 & 1.04 \\
+        0.77 & 0.99 & 0.84 & 1.08 & 1.12 & 0.78 & 0.95 & 0.93 & 1.09 & 0.92 \\
+        1.00 & 0.92 & 1.02 & 0.90 & 0.87 & 0.85 & 1.03 & 1.04 & 0.92 & 1.07
+    \end{matrix}
+\end{equation*}
+
+Supongamos que el peso de un paquete elegido al azar es una variable aleatoria $X \sim \mathcal{N}(\mu,\sigma^2)$
+
+Al elegir $n$ paquetes tenemos: Sea $X_{1},X_{2},\dots,X_{n}$ i.i.d. $X_{i} \sim \mathcal{N}(\mu,\,\sigma^{2})$
+Estimador de los momentos de $\mu$ de orden 1:
+\begin{equation*}
+    \frac{1}{n} \sum_{i=1}^n X_{i} = E_{\widehat{\mu}}(X) = \widehat{\mu}
+\end{equation*}
+Con estos datos la estimacion que se obtiene es $\widehat{\mu}_{obs} = 0.97$
+
+\subsection{Ejercicio 2 - Distribucion Exponencial}
+Una fabrica de lamparas sabe que el tiempo de vida, en dias, de las lamparas que fabrica, sigue una distribucion $Exp(\theta)$.
+Obtener una formula para estimar $\theta$ a partir de una muestra aleatoria $X_{1}\dots X_{n}$
+
+Antes de probar las lamparas no sabemos cuanto durara cada una. Asi la duracion de la primera puede ser considerada
+una v.a $X_{1}$. la segunda una v.a $X_{2}$, etc. 
+
+\begin{equation*}
+    X_{1}, X_{2}, \dots, X_{n} \sim Exp(\theta)
+\end{equation*}
+
+Para hallar el estimador de momentos de $\theta$, hay que despejar $\widehat{\theta}$ de
+\begin{equation*}
+    \frac{1}{n} \sum_{i=1}^n X_{i} = E_{\widehat{\theta}}(X_{1})
+\end{equation*}
+\begin{equation*}
+    \frac{1}{n} \sum_{i=1}^n X_{i} = \frac{1}{\mathcal{\theta}} \Rightarrow \mathcal{\theta} = \frac{1}{\widehat{X}}
+\end{equation*}
+
+\subsection{Ejercicio 3 - Distribucion uniforme}
+\begin{equation*}
+    X_{1}, X_{2}, \dots , X_{n} \sim \mathcal{U}{0, \theta}
+\end{equation*}
+Hay que despejar $\theta$ de
+\begin{equation*}
+    \frac{1}{n} \sum_{i=1}^n X_{i} = E_{\widehat{\theta}}(X_{1})
+\end{equation*}
+\begin{equation*}
+    \frac{1}{n} \sum_{i=1}^n X_{i} = \frac{\widehat{\theta}}{2} \Rightarrow \mathcal{\theta} = \frac{1}{2n}\sum_{i=1}^{n} X_{i}
+\end{equation*}
+
+\subsection{Ejercicio 4 - Estimacion de ambos parametros de la normal}
+Supongamos que tenemos una muestra aleatoria $X_{1}, X_{2},\dots,X_{n} \sim \mathcal{N}(\mu, \sigma^2)$ \\
+Se tiene que $E_{\mu, \sigma^2}(X) = \mu$ y $E_{\mu, \sigma^2}(X^2) = \mu^2 + \sigma^2$
+Para encontrar el estimador de momentos de $\mu$ y $\sigma$ hay que resolver el sistema
+
+\begin{equation*}
+    \frac{1}{n} \sum_{i=1}^n X_{i} = E_{\widehat{\mu}, \widehat{\sigma}^2}(X_{1}) = \widehat{\mu}
+\end{equation*}
+\begin{equation*}
+    \frac{1}{n} \sum_{i=1}^n X_{i}^2 = E_{\widehat{\mu}, \widehat{\sigma}^2}(X_{1}^2) = \widehat{\mu}^2 + \widehat{\sigma}^2
+\end{equation*}
+
+\begin{equation*}
+    \begin{cases}
+        \frac{1}{n} \sum_{i=1}^n X_{i} = \widehat{\mu}
+        \\
+        \frac{1}{n} \sum_{i=1}^n X_{i}^2 = \widehat{\mu}^2 + \widehat{\sigma}^2
+        \end{cases}
+\end{equation*}
+\begin{equation*}
+    \widehat{\mu} = \frac{1}{n} \sum_{i=1}^n X_{i}
+\end{equation*}
+\begin{equation*}
+    \widehat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n X_{i}^2 - (\frac{1}{n} \sum_{i=1}^n X_{i})^2
+\end{equation*}
+
+\section{Ejemplos de estimacion puntual - Verosimilitud}
+\subsection{Ejercicio 1 - $\mathcal{E}(\lambda):f(x,\lambda) = \lambda e^{-x\lambda}\mathcal{I}_{(0, \infty)}(x)$}
+$X_{1},\dots,X_{n}$ v.a. i.i.d. $X_{i} \sim \mathcal{E}(\lambda), \lambda > 0$
+\begin{equation*}
+    L(\lambda; x) = \prod_{i=1}^n f(x_{i}, \lambda) = \prod_{i=1}^n \lambda e^{-x_{i}\lambda}\mathcal{I}_{(0,\infty)}(x_{i})
+\end{equation*}
+Si $x_{i}\geq 0 \forall i$
+\begin{equation*}
+    L(\lambda; x) = \lambda e^{-x_{i}\sum_{i=1}^n x_{i}}
+\end{equation*}
+Si consideramos $\log L$ resulta
+\begin{equation*}
+    l(\lambda;x) = n \log(\lambda)-\lambda \sum_{i=1}^n x_{i}
+\end{equation*}
+Derivando e igualando a 0 queda \\
+$\frac{n}{\lambda} - \sum_{i=1}^n x_{i} = 0 \Rightarrow$ punto critico es $\frac{1}{\bar{x}_{n}}$, ver que maximiza \\
+$\Rightarrow \widehat{\lambda} = \frac{1}{\bar{X}_{n}}$
+
+\subsection{Ejercicio 2 - $X_{1},\dots,X_{n}$ v.a. i.i.d. $X_{i} \sim \mathcal{N} (\mu, 9)$, $f(x,\mu, 9) = \frac{1}{\sqrt{2\pi}}\frac{1}{3}e^{-\frac{1}{2}\frac{(x-\mu)^2}{9}}$ }
+\begin{equation*}
+    L(\mu, 9; x) = \prod_{i=1}^n f(x_{i}, \mu, 9) = \prod_{i=1}^n \frac{1}{\sqrt(2\pi)}\frac{1}{3}e^{-\frac{1}{2}\frac{(x_{i}-\mu)^2}{9}}
+\end{equation*}
+\begin{equation*}
+    L(\mu, 9; x) = (\frac{1}{\sqrt(2\pi)})^n(\frac{1}{3})^n e^{-\frac{1}{2}\frac{\sum_{i=1}^n(x_{i}-\mu)^2}{9}}
+\end{equation*}
+Tomemos logatirmo
+\begin{equation*}
+    l(\mu, 9; x) = cte - \frac{1}{2}\frac{\sum_{i=1}^n(x_{i}-\mu)^2}{9}
+\end{equation*}
+Maximizar a $l(\mu, 9; x)$ como funcion de $\mu$ equivale a minimizar
+\begin{equation*}
+    h(\mu) = \sum_{i=1}^n (x_{i} - \mu)^2
+\end{equation*}
+Un par de clases aatras vimos que $h(\mu)$ se minimiza en $\bar{x}_{n}$
+\begin{equation*}
+    EMV de \ \mu : \widehat{\mu} = \bar{X}_{n}
+\end{equation*}
+\begin{equation*}
+    L(\mu, 9; x) = \prod_{i=1}^n f(x_{i}, \mu, \sigma^2) = \prod_{i=1}^n \frac{1}{\sqrt(2\pi\sigma^2)}e^{-\frac{(x_{i}-\mu)^2}{2\sigma^2}}
+\end{equation*}
+\begin{equation*}
+    L(\mu, 9; x) = \prod_{i=1}^n f(x_{i}, \mu, \sigma^2) = \prod_{i=1}^n \frac{1}{\sqrt(2\pi\sigma^2)}e^{-\sum_{i=1}^n \frac{(x_{i}-\mu)^2}{2\sigma^2}}
+\end{equation*}
+Tomando logatirmo y resolviendo las ecuaciones
+\begin{equation*}
+    \frac{\partial l (\mu, \sigma^2;x)}{\partial \mu} = 0 \ y \ \frac{\partial l (\mu, \sigma^2;x)}{\partial \sigma^2} = 0
+\end{equation*}
+se obtiene que los EMV de $\mu$ y $\sigma^2$ section
+\begin{equation*}
+    \widehat{\mu} = \bar{X}_{n} \ \ \ \ \widehat{\sigma}^2 = \frac{\sum_{i=1}^n ((X_{i} - \bar{X}_n))^2}{n}
+\end{equation*}
+Los estimadores de $\mu$ y $\sigma$ coinciden con los estimadores de momentos
+
+\subsection{Ejercicio 2 - $\mathcal{U}(0,\theta):f(x,\theta) = \frac{1}{\theta}\mathcal{I}_{(0,\theta)}(x)$}
+$X_{1},\dots,X_{n}$ v.a. i.i.d. $X_{i} \sim \mathcal{U}(0,\theta)$
+\begin{equation*}
+    f(x_{1},\dots,x_{n}, \theta) = \prod_{i=1}^n \frac{1}{\theta}I_{(0,\theta)}(x_{i}) = \frac{1}{\theta^n}\prod_{i=1}^n I_{(0,\theta)}(x_{i})
+\end{equation*}
+La indicadora vale 1 cuando todas las indicadoras valgan 1, de lo contrario, es 0
+Por ende, la conjunta puede tomar 2 valores:
+\begin{equation*}
+    \begin{cases}
+        \frac{1}{\theta^n} \ si \ 0<x_{i}<\theta \  \forall i
+        \\
+        0 \ en \ otro \ caso
+        \end{cases}
+\end{equation*}
+\begin{equation*}
+    \begin{cases}
+        \frac{1}{\theta^n} \ si \ \theta > \max(x_{i})
+        \\
+        0 \ en \ otro \ caso
+        \end{cases}
+\end{equation*}
+\end{document}

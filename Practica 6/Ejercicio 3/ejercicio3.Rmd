@@ -1,0 +1,57 @@
+---
+title: "Ejercicio 3"
+output:
+  pdf_document: default
+---
+
+```{r}
+datos <- scan("graduados.txt")
+datos
+```
+
+Primero observemos algo de los datos, asi nomas empezar a trabajar a ciegas no es amigable, aparte estamos haciendolo con software, no cuesta nada
+```{r}
+# mfrow hace que los datos se vean en la forma columna, fila
+# c(1,2) hace (1 fila, 2 columnas)
+par(mfrow=c(1,2))
+
+hist(datos, prob=TRUE)
+
+boxplot(datos)
+```
+
+**a)** Nos piden la media muestral y la mediana muestral
+Por la teorica sabemos esos dos comandos
+```{r}
+mean(datos) # Es la medi
+median(datos) # Es la mediana
+```
+
+**b)** Nos poden el desvio estandar muestral y la distancia intercuartil
+Por la teorica sabemos esos dos comandos
+```{r}
+sd(datos) # Desviacion estandar
+quantile(datos, seq(0,1,0.1)) #Cuartiles
+quantile(datos, 0.75) - quantile(datos, 0.25) #Distancia intercuartil como resta del cuartil
+IQR(datos) # Rango intercuartil
+```
+**d)**Menciones: Es muy simetrico, tiene las mismas extensiones de bigotes, tiene una relacion cierta con el grafico histograma del principio pues, este tambien tiene una cierta simetria
+Por otro lado no se observan outliers
+
+**e)**Mirando el boxplot, que es muy simetrico y el histograma, estos datos son de distribucion normal con media $\mu = 3.7$ y varianza $\sigma^2 = 0.15^2$ o aproximados pues lo calculamos en item a y b
+
+**f)** Este item es analogo al item c pues pide graficar la curva
+El comando density no lo entendi, asi que me robe una funcion para calcular densidades, fiaca
+```{r}
+densidad_normal <- function(x, mu=3.7, var=0.0225){
+    return ( 1/sqrt(2*pi*var) * exp( - (x-mu)**2 / (2*var) ) )
+}
+# Genero grilla de valores normales
+# Uso outer: Paso parametros x=a y mu=0 para cada a en seq(-3,3,0.1)
+gridNormal <- outer(seq(3.2, 4.2, 0.01), 3.7, densidad_normal)
+# Aumento la dimension del vector en 1
+gridNormal <- matrix(c(seq(3.2, 4.2, 0.01), gridNormal), ncol=2)
+hist(datos, freq=FALSE, xlim = c(3, 4.5))
+#lines(density(graduadis), xlim = c(-3.3, 4.1))  # IQR = 0
+lines(gridNormal)  # IQR = 0
+```

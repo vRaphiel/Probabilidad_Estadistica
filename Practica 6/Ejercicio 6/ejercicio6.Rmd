@@ -1,0 +1,44 @@
+---
+title: "Ejercicio 6"
+output:
+  pdf_document: default
+  pdf_notebook: default
+---
+
+
+**a)** Construir los QQ-plots correspondientes para cada una de ellas
+```{r}
+datosn_25x<-rnorm(25)
+datosn_25y<-rnorm(25)
+qqplot(datosn_25x,datosn_25y, main="Con tamaño 25 - Normal")
+```
+
+```{r}
+datosn_50x<-rnorm(50)
+datosn_50y<-rnorm(50)
+qqplot(datosn_50x,datosn_50y, main="Con tamaño 50 - Normal")
+```
+
+```{r}
+datosn_100x<-rnorm(100)
+datosn_100x<-rnorm(100)
+qqplot(datosn_100x,datosn_100x, main="Con tamaño 100 - Normal")
+```
+**b)** con una gamma
+```{r}
+datosg_25x<-dgamma(5, 1/2)
+datosg_25y<-dgamma(5, 1/2)
+qqplot(datosg_25x,datosg_25y, main="Con tamaño 25 - Gamma")
+```
+
+**c)** para Y= Z/U con Z una normal 0,1 y U una uniforme 0,1
+```{r}
+datosZ_x<-rnorm(25, 0,1)
+datosZ_y<-runif(25, 0,1)
+qqplot(datosZ_x,datosZ_y, main="Con tamaño 25 - Z - U")
+```
+
+
+Hacer lo mismo con exponenciales y uniformes, ya es paja
+
+**f)** A simple vista no mucho pues dependiendo de los valores esta distribucion de puntos puede ser similar, como la Normal de 25 y la Y = Z/U
