@@ -56,7 +56,7 @@ Hay que despejar $\theta$ de
     \frac{1}{n} \sum_{i=1}^n X_{i} = E_{\widehat{\theta}}(X_{1})
 \end{equation*}
 \begin{equation*}
-    \frac{1}{n} \sum_{i=1}^n X_{i} = \frac{\widehat{\theta}}{2} \Rightarrow \mathcal{\theta} = \frac{1}{2n}\sum_{i=1}^{n} X_{i}
+    \frac{1}{n} \sum_{i=1}^n X_{i} = \frac{\widehat{\theta}}{2} \Rightarrow \mathcal{\theta} = 2\frac{1}{n}\sum_{i=1}^{n} X_{i}
 \end{equation*}
 
 \subsection{Ejercicio 4 - Estimacion de ambos parametros de la normal}
@@ -159,4 +159,147 @@ Por ende, la conjunta puede tomar 2 valores:
         0 \ en \ otro \ caso
         \end{cases}
 \end{equation*}
+
+\pagebreak
+
+\section{Propiedades de estimacion}
+\subsection{Ejercicio 1 - Distribucion Uniforme}
+\begin{itemize}
+    \item $X_i \sim \mathcal{U}(0, \theta)$
+    \item $\widehat{\theta} = 2\bar{X}_n$ (Estimador de momentos)
+    \item $\widehat{\theta} = max{X_{1},\dots,X_{n}}$ (Estimador de maxima Verosimilitud)
+    \item Calcule la esperanza y varianza de cada estimador
+\end{itemize}
+
+Esperanza del estimador de momentos
+Sea $X_{1},X_{2},\dots,X_{n}$ una m.a de una distribucion $\mathcal{U}(0, \theta)$. El estimador de momentos de $\theta$ es $\widehat{\theta} = 2\bar{X}$
+
+\begin{equation*}
+    E_{\theta}(\widehat{\theta}) = 2E_{\theta}\bar{X} = 2\frac{\theta}{2} = \theta \ \ \forall \theta
+\end{equation*}
+
+Recordar
+
+Sea $X_{1},X_{2},\dots,X_{n}$ una m.a de una distribucion $\mathcal{U}(0, \theta)$
+\begin{itemize}
+    \item El EMV de $\theta = max_{1\leq i \leq n}(X_{i})$
+    \item La fda es $\widehat{\theta}$ es
+        \begin{equation*}
+            F_{\widehat{\theta}}(u) = (F_{X_{i}}(u))^n =       
+            \begin{cases}
+                0 \ si \ u \leq \theta
+                \\
+                (\frac{u}{\theta})^n \ si \ 0<u<\theta
+                \\
+                1 \ si \ u \geq \theta
+            \end{cases}
+        \end{equation*}
+    \item La densidad de $\widehat{\theta}$ es
+        \begin{equation*}
+            f_{\widehat{\theta}}(u) = n\frac{u}{\theta}^{n-1} \frac{1}{\theta} I_{(0,\theta)}(u)
+        \end{equation*}
+\end{itemize}
+
+\begin{equation*}
+    E_{\theta}(\widehat{\theta}) = \int_{0}^{\theta} un(\frac{u}{\theta})^{n-1} \frac{1}{\theta} du = 
+    \\
+    \frac{n}{\theta^n}\int_{0}^{\theta} u^n du = \frac{n}{\theta^n}\frac{u^{n+1}}{n+1}\Biggr|_{0}^{\theta} = \frac{n}{n+1}\theta
+\end{equation*}
+
+Varianza del estimador de momentos
+
+Sea $X_{1},X_{2},\dots,X_{n}$ una m.a de una distribucion $\mathcal{U}(0, \theta)$ y $\widehat{\theta}=2\bar{X}$ el estimador de momentos de $\theta$
+\begin{equation*}
+    V_{\theta}(\widehat{\theta}) = 4V_{\theta}(\bar{X}) = 4 \frac{\theta^2/12}{n}
+\end{equation*}
+
+Varianza del estimador de maxima Verosimilitud
+Recordar la densidad del EMV
+\begin{gather*}
+    f_{\theta}(u) = n\frac{u}{\theta}^{n-1}\frac{1}{\theta}I_{(0,\theta)}(u)
+    \\
+    E_{\theta}(\widehat{\theta}^2) = \int_{0}^{\theta} u^2n \frac{u}{\theta}^{n-1} \frac{1}{\theta}du = \frac{n}{\theta^n}\int_{0}^{\theta}u^{n+1} du
+    \\
+    \frac{n}{\theta^n}\frac{u^{n+2}}{n+2}\Biggr|_{0}^{\theta} = \frac{n}{n+2}\theta^2
+\end{gather*}
+Entonces,
+\begin{gather*}
+    V_{\theta}(\widehat{\theta}) = \frac{n}{n+2}\theta^2 - (\frac{n}{n+1})^2\theta^2=(\frac{n}{n+2} - \frac{n^2}{(n+1)^2})\theta^2
+    \\
+    \frac{n}{(n+2)(n+1)^2}\theta^2
+\end{gather*}
+
+\subsection{Ejercicio 2 - Sesgo de los EMV de $\mu$ y $\sigma^2$ en el caso normal}
+Sea $X_{1},X_{2},\dots,X_{n}$ una m.a de una distribucion $\mathcal{N}(\mu, \sigma^2)$. Los EMV de $\mu$ y $\sigma^2$ section
+\begin{equation*}
+    \widehat{\mu} = \bar{X} \ \ \ \ \widehat{\sigma}^2 = \frac{\sum_{i=1}^n (X_{i} - \bar{X})^2}{n}
+\end{equation*}
+
+\begin{itemize}
+    \item El estimador de $\mu$ es insesgado pues $E_{\mu, \sigma^2}(\widehat{\mu}) = \mu \forall\mu$,
+    \item El estimador de $\sigma^2$ es sesgado pero es asintoticamente insesgado pues:
+\end{itemize}
+\begin{gather*}
+    E_{\mu, \sigma^2}(\widehat{\sigma}^2) = E_{\mu, \sigma^2}(\frac{\sum_{i=1}^n (X_{i} - \bar{X})^2}{n})
+    \\
+    = \frac{1}{n}E_{\mu, \sigma^2}(\sum_{i=1}^n (X_{i}^2 - 2X_{i}\bar{X} + \bar{X}^2))
+    \\
+    = \frac{1}{n}E_{\mu, \sigma^2}(\sum_{i=1}^n X_{i}^2 - 2\bar{X}\sum_{i=1}^n X_{i} + n\bar{X}^2)
+    \\
+    = \frac{1}{n}E_{\mu, \sigma^2}(\sum_{i=1}^n X_{i}^2 - 2n\bar{X}^2 + n\bar{X}^2)
+    \\
+    = \frac{1}{n}E_{\mu, \sigma^2}(\sum_{i=1}^n X_{i}^2 - n\bar{X}^2)
+    \\
+    = \frac{1}{n}E_{\mu, \sigma^2}(\sum_{i=1}^n X_{i}^2) - E_{\mu, \sigma^2}(\bar{X}^2)
+    \\
+    = \frac{n}{n}E_{\mu, \sigma^2}(X_{1}^2) - E_{\mu, \sigma^2}(\bar{X}^2)
+    \\
+    = [ V_{\mu, \sigma^2}(X_{1}) + (E_{\mu, \sigma^2}(X_{1}))^2] - [ V_{\mu, \sigma^2}(\bar{X}) + (E_{\mu, \sigma^2}(\bar{X_{1}}))^2]
+    \\
+    = \sigma^2 + \mu^2 - \frac{\sigma^2}{n} - \mu^2
+    \\
+    = \frac{n-1}{n}\sigma^2
+\end{gather*}
+
+\subsection{Ejemplo - Consistencia de la media muestral}
+Sea $X_{1},X_{2},\dots,X_{n}$ una m.a de una distribucion con $E(X_{i})=\mu$ y $V(X_{i}) = \sigma^2 < \infty$ 
+Sea $\widehat{\mu} = \bar{X}$
+\begin{itemize}
+    \item $E(\bar{X}) = \mu$
+    \item $V(\bar{X}) = \frac{\sigma^2}{n}$
+\end{itemize}
+Entonces $\widehat{\mu}$ es un estimador consistente de $\mu$
+
+\subsection{Ejemplo - Consistencia de los estimadores de $\theta$ en la $\mathcal{U}[0,\theta]$}
+Sea $X_{1},X_{2},\dots,X_{n}$ una m.a de una distribucion $\mathcal{U}(0, \theta)$. Vimos que el EMV de $\theta, \widehat{\theta} = max_{1\leq i \leq n}(X_{i})$ y 
+\begin{itemize}
+    \item $E_{\theta}(\widehat{\theta}) = \frac{n}{n+1}\theta \Rightarrow \widehat{\theta}$ es asintóticamente insesgado
+    \item $V_{\theta}(\widehat{\theta}) = \frac{n}{(n+2)(n+1)^2}\theta^2 \rightarrow_{n\rightarrow\infty}0$
+\end{itemize}
+Entonces el $\widehat{\theta}$ es consistente
+
+\subsection{Ejemplo - Consistencia de la varianza muestral}
+Sea $X_{1},X_{2},\dots,X_{n}$ una m.a de una con $E(X_{i}) = \mu$ y $V(X_{i}) = \sigma^2 < \infty$ entonces la varianza muestral $S^2$ es un estimador
+consistente de la varianza poblacional
+\begin{gather*}
+    S^2 = \frac{\sum_{i=1}^n (X_{i} - \bar{X})^2}{n-1} = \frac{1}{n-1}(\sum_{i=1}^n X_{i}^2 - n\bar{X}^2)
+    \\
+    = \frac{n}{n-1}(\frac{\sum_{i=1}^n X_{i}^2}{n} - \bar{X}^2)
+\end{gather*}
+
+Por la Ley de los Grandes Numeros $\bar{X} \xrightarrow[]{p} \mu$, entonces por la propiedad 4,
+\begin{equation*}
+    \bar{X}^2 \xrightarrow[p]{} \mu^2
+\end{equation*}
+
+Por otra parte, aplicando nuevamente la Ley de los grandes Numeros
+\begin{equation*}
+    \frac{\sum_{i=1}^n X_{i}^2}{n} \xrightarrow[]{p} E_{\mu, \sigma^2}(X^2) = V_{\mu, \sigma^2}(X) + [E_{\mu, \sigma^2}(X)]^2 = \sigma^2 + \mu^2
+\end{equation*}
+Como ademas $\frac{n}{n-1} \rightarrow 1$, se obtiene
+\begin{equation*}
+    S_{x}^2 = \frac{n}{n-1}(\frac{\sum_{i=1}^n X_{i}^2}{n} - \bar{X}^2) \xrightarrow[]{p} \sigma^2 + \mu^2 -\mu^2 = \sigma^2
+\end{equation*}
+y por lo tanto la varianza muestral es un estimador consistente de $\sigma^2$
+
 \end{document}
