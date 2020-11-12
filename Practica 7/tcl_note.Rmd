@@ -1,0 +1,86 @@
+---
+title: "TCL"
+output: html_notebook
+---
+
+Teorema central del limite
+Binomial -> Normal
+```{r} 
+n = 5
+p = 0.3
+x <- 0:n
+y <- seq(from=0, to=n, length.out = 100)
+ppbi <- dbinom(x,size = n, prob = p)
+dfn <- dnorm(y, mean = n*p, sd=sqrt(n*p*(1-p)))
+plot(x, ppbi, col="blue")
+lines(y, dfn, col="red")
+```
+
+```{r} 
+n = 10
+p = 0.3
+x <- 0:n
+y <- seq(from=0, to=n, length.out = 100)
+ppbi <- dbinom(x,size = n, prob = p)
+dfn <- dnorm(y, mean = n*p, sd=sqrt(n*p*(1-p)))
+plot(x, ppbi, col="blue")
+lines(y, dfn, col="red")
+```
+
+```{r} 
+n = 30
+p = 0.3
+x <- 0:n
+y <- seq(from=0, to=n, length.out = 100)
+ppbi <- dbinom(x,size = n, prob = p)
+dfn <- dnorm(y, mean = n*p, sd=sqrt(n*p*(1-p)))
+plot(x, ppbi, col="blue")
+lines(y, dfn, col="red")
+```
+
+Mientras mas vayamos aumentando el n, mas nos vamos acercando a la forma de la normal y la diferencia o error es mas chico
+
+```{r} 
+n = 50
+p = 0.5
+x <- 0:n
+y <- seq(from=0, to=n, length.out = 100)
+ppbi <- dbinom(x,size = n, prob = p)
+dfn <- dnorm(y, mean = n*p, sd=sqrt(n*p*(1-p)))
+plot(x, ppbi, col="blue")
+lines(y, dfn, col="red")
+```
+
+```{r} 
+n = 50
+p = 0.05
+x <- 0:n
+y <- seq(from=0, to=n, length.out = 100)
+ppbi <- dbinom(x,size = n, prob = p)
+dfn <- dnorm(y, mean = n*p, sd=sqrt(n*p*(1-p)))
+plot(x, ppbi, col="blue")
+lines(y, dfn, col="red")
+```
+
+```{r} 
+n = 5
+p = 0.3
+x <- 0:n
+y <- seq(from=0, to=n, length.out = 100)
+ppbi <- dbinom(x,size = n, prob = p)
+dfn <- dnorm(y, mean = n*p, sd=sqrt(n*p*(1-p)))
+plot(x, ppbi, col="blue")
+lines(y, dfn, col="red")
+```
+
+Para n y p grandes la aproximacion es mejor
+
+### Ejercicio 1
+# Simulacion
+102000-260*sum(rbinom(10000, size = 1, prob=1/26))
+
+
+
+
+
+
