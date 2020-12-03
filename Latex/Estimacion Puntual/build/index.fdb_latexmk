@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1604979255 "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/index.tex" "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/build/index.pdf" "index" 1604979258
+["pdflatex"] 1605829761 "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/index.tex" "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/build/index.pdf" "index" 1605829764
   "Algo1Macros.tex" 1588752415 17619 9800360dd01670a53a6841c1697756f2 ""
   "C:/Users/vAsmad/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1604427474 10294835 00ccd4e9b2103a572f3a18426b9405f5 ""
   "C:/Users/vAsmad/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1604261259 81068 299f700eb05b1217173e62b88b513bd0 ""
@@ -11,6 +11,7 @@
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1233951854 908 2921f8a10601f252058503cc6570e581 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1233951854 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
+  "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -22,6 +23,7 @@
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
@@ -143,13 +145,13 @@
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/tex/latex/tools/multicol.sty" 1580644884 31532 04852e45d7c17cb384689d2f83b628d3 ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/tex/latex/tools/xspace.sty" 1580644886 4546 3e6071704acf4f66392376b7b66ae02c ""
   "C:/Users/vAsmad/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1463135581 57049 34128738f682d033422ca125f82e5d62 ""
-  "build/index.aux" 1604979258 2538 5fcb2fd033de6a29b76b01af90eaf0a2 "pdflatex"
-  "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/build/index.aux" 1604979258 2538 5fcb2fd033de6a29b76b01af90eaf0a2 ""
-  "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/index.tex" 1604979252 13552 954667ca47d8d0d7c8cf38d7ed92b9d2 ""
-  "index.tex" 1604979252 13552 954667ca47d8d0d7c8cf38d7ed92b9d2 ""
+  "build/index.aux" 1605829764 3291 fee05e73c348516f12a39332e9ceea7d "pdflatex"
+  "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/build/index.aux" 1605829764 3291 fee05e73c348516f12a39332e9ceea7d ""
+  "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/index.tex" 1605829761 21535 edad79d0b66e92352b04911b203dea20 ""
+  "index.tex" 1605829761 21535 edad79d0b66e92352b04911b203dea20 ""
   (generated)
-  "build/index.aux"
-  "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/build/index.log"
   "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/build/index.pdf"
+  "build/index.aux"
   "build/index.log"
+  "d:/Collections/Facultad - Sistemas/Probabilidad_Estadistica/Latex/Estimacion Puntual/build/index.log"
   "build/index.pdf"

@@ -302,4 +302,194 @@ Como ademas $\frac{n}{n-1} \rightarrow 1$, se obtiene
 \end{equation*}
 y por lo tanto la varianza muestral es un estimador consistente de $\sigma^2$
 
+\pagebreak
+\section{Intervalos de confianza}
+
+\subsection{Ejemplo - Intervalo de confianza para el parametro de la exponencial}
+\begin{itemize}
+    \item Si $Z_1,\dots,Z_n$ i.i.d., $Z_i \sim \mathcal{N}(0,1)$, llamamos chi cuadrado con $n$ grados de libertad a la distribucion de
+    \begin{equation*}
+        Z_1^2 + Z_2^2 + \dots + Z_n^2
+    \end{equation*}
+    \item la suma de $n$ v.a. $\chi_1^2$ tiene distribucion $\chi_n^2$
+    \item \textbf{Ejercicio 23 de la practica 3}. Sea $Z$ una v.a. con una distribucion normal standar. Pruebe que $Z^2 \sim \Gamma(1/2, 1/2)$
+    (Esta variable aleatoria recibe el nombre de $\chi^2$ con un grado de libertad)
+    \item Una suma de n v.a. $\chi_1^2$ es $\Gamma(n/2, 1/2)$. Por lo tanto,
+    \begin{equation*}
+        \Gamma(n/2, 1/2) = \chi_n^2
+    \end{equation*}
+\end{itemize}
+
+Sea $X_1, X_2, \dots, X_n$ una m.a. de una distribucion $E(\lambda)$
+Recordar:
+\begin{itemize}
+    \item La distribucion de la suma de exponenciales es Gamma, es decir
+    \begin{equation*}
+        \sum_{i=1}^n X_i \sim \Gamma(n, \lambda)
+    \end{equation*}
+    \item Una constante por una Gamma es Gamma:
+    \item \begin{equation*}
+        V \sim \Gamma(\alpha, \lambda) \ y \ a > 0 \Rightarrow aV \sim \Gamma(\alpha, \frac{\lambda}{\alpha})
+    \end{equation*}
+\end{itemize}
+Por lo tanto
+\begin{gather*}
+    \sum_{i=1}^n X_i \sim \Gamma(n, \lambda)
+    \\
+    \lambda \sum_{i=1}^n X_i \sim \Gamma(n,1)
+    \\
+    2\lambda \sum_{i=1}^n X_i \sim \Gamma(n, \frac{1}{2}) = \Gamma(\frac{2n}{2}, \frac{1}{2}) = \chi_{2n}^2
+\end{gather*}
+Pivot para la exponencial:
+\begin{equation*}
+    H(X_1, X_2, \dots, X_n, \lambda) = 2\lambda \sum_{i=1}^n X_i
+\end{equation*}
+\begin{gather*}
+    P\left(\chi_{2n,1-\alpha /2}^2 \leq 2\lambda \sum_{i=1}^n X_i \leq \chi_{2n,a/2}^2 \right) = 1-\alpha
+    \\
+    P\left(\frac{\chi_{2n,1-\alpha / 2}}{2\sum_{i=1}^n X_i} \leq \lambda \leq \frac{\chi_{2n,\alpha /2}}{2\sum_{i=1}^n X_i}\right) = 1-\alpha
+\end{gather*}
+Entonces el intervalo de confianza para $\lambda$
+\begin{equation*}
+    \left[\frac{\chi_{2n,1-\alpha / 2}}{2\sum_{i=1}^n X_i}, \frac{\chi_{2n,\alpha / 2}}{2\sum_{i=1}^n X_i} \right]
+\end{equation*}
+
+\subsection{Ejemplo - Invervalo de confianza para $\theta$ en la $\mathcal{U}[0, \theta]$}
+Sea $X_1, X_2,\dots,X_n$ una m.a. de una distribucion $U(0, \theta)$
+\begin{itemize}
+    \item el EMV de $\theta$ es $\hat{\theta} = max(X_1,\dots,X_n)$ 
+    \item la distribucion de $max(X_1,\dots,X_n)$ es $(F_{x_1}(u))^n$
+    \item La fda de $\hat{\theta}$ esperanza
+    \begin{equation*}
+        F_{\hat{\theta}}(u) = (F_{x_1}(u))^n = 
+        \begin{cases}
+            0 \ si \ u\leq 0
+            \\
+            \left(\frac{u}{\theta}\right)^n \ si \ 0 < u < \theta
+            \\
+            1 \ si \ u\geq \theta
+        \end{cases}
+    \end{equation*}
+    \item la densidad de $\hat{\theta}$ es
+    \begin{equation*}
+        f_{\hat{\theta}}(u) = n\left(\frac{u}{\theta}\right)^{n-1} \frac{1}{\theta} I_{(0,\theta)}(u)
+    \end{equation*}
+    Veamos que la distribucion de $\hat{\theta}/\theta$ no depende de $\theta$
+\end{itemize}
+Queremos demostrar que la distribucion de $\hat{\theta}/\theta$ no depende de $\theta$
+\begin{equation*}
+    F_{\hat{\theta} / \theta}(u) = P\left(\frac{\hat{\theta}}{\theta} \leq u \right) = P(\hat{\theta} \leq \theta u) = F_{\hat{\theta}}(\theta u) = (F_{x_1}(\theta u))^n
+\end{equation*}
+Como $X_i \sim U(0, \theta)$
+\begin{gather*}
+    F_{\hat{\theta}}(u) = (F_{x_1}(u))^n = 
+    \begin{cases}
+        0 \ si \ u\leq 0
+        \\
+        \left(\frac{u}{\theta}\right)^n \ si \ 0 < u < \theta
+        \\
+        1 \ si \ u\geq \theta
+    \end{cases}
+    \\
+    =
+    \begin{cases}
+        0 \ si \ u\leq 0
+        \\
+        \left(\frac{u}{\theta}\right)^n \ si \ 0 < u < \theta
+        \\
+        1 \ si \ u\geq \theta
+    \end{cases}
+\end{gather*}
+
+Por lo tanto, la distribucion de $\hat{\theta}/\theta$ no depende de $\theta$. Derivando, se obtiene la densidad de $\hat{\theta}/\theta$
+\begin{equation*}
+    f_{\hat{\theta}/ \theta} (u) = nu^{n-1}I_{(0,1)}(u)
+\end{equation*}
+Pivot:
+\begin{equation*}
+    H(X_1,X_2,\dots,X_n, \theta) = \frac{max(X_1,\dots,X_n)}{\theta}
+\end{equation*}
+Buscamos $a$ y $b$ tales que
+\begin{equation*}
+    P\left(a \leq \frac{max(X_1,\dots,X_n)}{\theta} \leq b \right) = 1 - \alpha
+\end{equation*}
+y, obtenemos el siguiente intervalo
+\begin{equation*}
+    \left[\frac{max(X_1,\dots,X_n)}{b},\frac{max(X_1,\dots,X_n)}{a} \right]
+\end{equation*}
+¿Y como elegimos $a$ y $b$? Debemos hallar $a$ y $b, 0 < a < b < 1$, tales que
+\begin{equation}
+    \int_{a}^b nw^{n-1}dw = w^n|_{a}^b = b^n-a^n = 1-\alpha
+\end{equation}
+
+Conviene elegir la solucion que produce el intervalo de menor longitud esperada, es decir, buscar $a$ y $b$ que minimicen $E(L)$ siendo
+\begin{equation*}
+    L = max(X_1,\dots,X_n)\left(\frac{1}{a} - \frac{1}{b}\right)
+\end{equation*}
+sujeto a la condicion $b^n - a^n = 1 - \alpha$
+Como ya hemos demostrado que $E(max(X_1,\dots,X_n)) = \frac{n}{n+1} \theta$, debemos minimizar
+\begin{equation*}
+    \frac{n}{n+1}\theta\left(\frac{1}{a} - \frac{1}{b}\right)
+\end{equation*}
+sujeto a la condicion $b^n - a^n = 1-\alpha$
+El intervalo de minima longitud esperada es
+\begin{equation*}
+    \left(\frac{max{X_1,\dots,X_n}}{1}, \frac{max(X_1,\dots,X_n)}{\sqrt[n]{\alpha}}\right)
+\end{equation*}
+
+\subsection{Intervalo de confianza asintotico para el parametro $p$ de la distribucion binomial}
+\subsubsection{Aproximacion normal a la binomial}
+Sea $X \sim Bi(n,p)$, entonces $X$ es el nuumero de exitos en n repeticiones de un experimento binomial con probabilidad de exito igual a p
+Sea, para $i = 1,\dots,n$,
+\begin{equation*}
+    X_i = 
+    \begin{cases}
+        1 & \text{si se obtuvo exito en la $i$-esima repeticiones} 
+        \\
+        0 & \text{si se obtuvo fracaso en la $i$-esima repeticion} 
+    \end{cases}
+\end{equation*}
+
+Estas v.a. son indepentientes, $X_i \sim Bi(1,p) \forall i$ y
+\begin{equation*}
+    X = \sum_{i=1}^n X_i
+\end{equation*}
+A demas $E(X_i) = p$ y $V(X_i) = p(1 - p)$. Entonces, por TCL
+\begin{equation*}
+    \frac{X - np}{\sqrt{np(1-p)}} \overset{a}{\sim} N(0,1) \ \text {y} \ \frac{\bar{X} - p}{\sqrt{p(1-p)/n}} \overset{a}{\sim} N(0,1)
+\end{equation*}
+
+Sea $X_1, X_2,\dots,X_n$ una m.a. de una distribucion B(1,p)
+\begin{equation*}
+    \frac{\bar{X} - p}{\sqrt{p(1-p)/n}} \overset{a}{\sim} N(0,1)
+\end{equation*}
+Implica que
+\begin{equation*}
+    P\left(-z_{\alpha/2} \leq \frac{\bar{X} - p}{\sqrt{\frac{p(1-p)}{n}}} \leq z_{\alpha/2}\right) \overset{n\rightarrow \infty}{\rightarrow} 1 - \alpha    
+\end{equation*}
+
+¿Como despejamos $p$? Mejor dicho, ¿despejamos $p$?
+Recordar que en este contexto $\bar{X}$ tambien se nota $\widehat{p}$
+
+Como, por la Ley de los Grandes Numeros
+\begin{equation*}
+    \widehat{p} = \bar{X} = \frac{\sum_{i=1}^n X_i}{n} \overset{p}{\rightarrow} p
+\end{equation*}
+podemos aplicar el teorema de Slutzky y reemplazar en el denominador el pivote $p$ por su estimador. Entonces se tiene que
+\begin{equation*}
+    \frac{\bar{X} - p}{\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}} \overset{d}{\rightarrow} N(0,1)
+\end{equation*}
+y por lo tanto
+\begin{equation*}
+    P\left(-z_{\alpha/2} \leq \frac{\bar{X} - p}{\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}} \leq z_{\alpha/2}\right) \cong 1 - \alpha    
+\end{equation*}
+Por lo tanto, un intervalo para $p$ de nivel asintotico $1-\alpha$ esperanza
+\begin{equation*}
+    \left[\bar{X} - z_{\alpha/2}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}, \bar{X} + z_{\alpha/2}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}} \right]
+\end{equation*}
+o, lo que es lo mismo
+\begin{equation*}
+    \left[\widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}, \widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}} \right]
+\end{equation*}
+
 \end{document}
